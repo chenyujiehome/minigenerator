@@ -206,7 +206,7 @@ class RawSocket(object):
         elif proto == "udp":
             proto = socket.IPPROTO_UDP
         else:
-            print "proto unknown"
+            print("proto unknown")
             return
         check = 10  # python seems to correctly fill the checksum
         saddr = socket.inet_aton ( src )  #Spoof the source ip address if you want to

@@ -57,8 +57,8 @@ class UnixClientTCP(object):
                 if serr.errno != errno.ECONNREFUSED and serr.errno != errno.EPIPE and serr.errno != errno.ENOENT:
                     raise serr
                 else:
-                    print serr
-                    print "Server {1}{0} could not be reached. Trying again...".format(server,self.server_address_base)
+                    print(serr)
+                    print("Server {1}{0} could not be reached. Trying again...".format(server,self.server_address_base))
 
         if not reconnections:
             raise socket.error
@@ -146,8 +146,8 @@ class UnixClient(object):
         try:
             self.sock.sendto(pickle.dumps(m),self.server_address_base.format(server))
         except socket.error as serr:
-            print serr
-            print "Server {0} could not be reached".format(self.server_address_base.format(server))
+            print(serr)
+            print("Server {0} could not be reached".format(self.server_address_base.format(server)))
             #log.info("Server {0} could not be reached".format(server))
 
 class UnixServer(object):
